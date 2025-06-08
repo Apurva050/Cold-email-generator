@@ -33,7 +33,10 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Deploy to Azure Web App
-      uses: azure/webapps-container-deploy@v1
+      uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
         images: ${{ secrets.DOCKER_USERNAME }}/cold-email-generator:latest
+
+
+    
