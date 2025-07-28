@@ -2,6 +2,8 @@ import pandas as pd
 import chromadb
 import uuid
 import os   
+import platform
+
 if platform.system() == "Windows":
     os.add_dll_directory(r"C:\Users\apurv\AppData\Local\Programs\Python\Python310\Lib\site-packages\onnxruntime")
 class Portfolio:
