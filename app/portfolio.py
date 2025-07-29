@@ -3,7 +3,7 @@ import chromadb
 import uuid
 import os   
 
-os.add_dll_directory(r"C:\Users\apurv\AppData\Local\Programs\Python\Python310\Lib\site-packages\onnxruntime")
+# os.add_dll_directory(r"C:\Users\apurv\AppData\Local\Programs\Python\Python310\Lib\site-packages\onnxruntime")
 class Portfolio:
     def __init__(self, file_path="app/resource/my_portfolio.csv"):
         self.file_path = file_path
