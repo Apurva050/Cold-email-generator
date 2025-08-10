@@ -19,13 +19,14 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: Build Docker image
-      run: |
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/cold-email-generator:latest .
+    - name: Build Docker image with cache
+      uses: docker/build-push-action@v4
+      with:
+        push: true
+        tags: ${{ secrets.DOCKER_USERNAME }}/cold-email-generator:latest
+        cache-from: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/cold-email-generator:buildcache
+        cache-to: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/cold-email-generator:buildcache,mode=max
 
-    - name: Push Docker image
-      run: |
-        docker push ${{ secrets.DOCKER_USERNAME }}/cold-email-generator:latest
 
     - name: Azure Login
       uses: azure/login@v1
